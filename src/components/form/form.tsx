@@ -6,13 +6,15 @@ import useFetch from "../../hooks/useFetch";
 import { Locations } from "../../types/locations";
 import moment from "moment";
 import { API_URL, DATE_FORMAT } from "../../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 const { RangePicker } = DatePicker;
 
-type Params = {
+export type Params = {
   origin?: string;
   destination?: string;
-  dateRange?: [moment.Moment | null, moment.Moment | null] | null;
+  departureDateRange?: [moment.Moment | null, moment.Moment | null] | null;
+  returnDateRange?: [moment.Moment | null, moment.Moment | null] | null;
 };
 
 const SearchForm = () => {
@@ -20,6 +22,7 @@ const SearchForm = () => {
   const [destinations, setDestinations] =
     useState<{ label: string; value: string }[]>();
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setDestinations(
@@ -31,24 +34,22 @@ const SearchForm = () => {
   }, [data?.locations]);
 
   const submitForm = (values: Params) => {
-    console.log(values);
-    const { origin, destination, dateRange } = values;
-    if (dateRange) {
-      const [dateFrom, dateTo] = dateRange;
+    const { origin, destination, departureDateRange, returnDateRange } = values;
+    if (departureDateRange && returnDateRange) {
+      const [departureDateFrom, departureDateTo] = departureDateRange;
+      const [returnDateFrom, returnDateTo] = returnDateRange;
 
       const formData = {
         flyFrom: origin,
         to: destination,
-        dateFrom: String(dateFrom?.format(DATE_FORMAT)),
-        dateTo: String(dateFrom?.format(DATE_FORMAT)),
-        returnFrom: String(dateTo?.format(DATE_FORMAT)),
-        returnTo: String(dateTo?.format(DATE_FORMAT)),
+        dateFrom: String(departureDateFrom?.format(DATE_FORMAT)),
+        dateTo: String(departureDateTo?.format(DATE_FORMAT)),
+        returnFrom: String(returnDateFrom?.format(DATE_FORMAT)),
+        returnTo: String(returnDateTo?.format(DATE_FORMAT)),
       };
-    }
-  };
 
-  const onReset = () => {
-    form.resetFields();
+      navigate("/results", { state: formData });
+    }
   };
 
   if (error) return <p>There is an error.</p>;
@@ -105,9 +106,23 @@ const SearchForm = () => {
           xl={{ span: 6 }}
         >
           <Form.Item
-            name="dateRange"
-            label="Date"
-            rules={[{ required: true, message: "Please fill destination" }]}
+            name="departureDateRange"
+            label="Departure date"
+            rules={[{ required: true, message: "Please fill departure date" }]}
+          >
+            <RangePicker disabled={!data} style={{ width: "100%" }} />
+          </Form.Item>
+        </Col>
+        <Col
+          xs={{ span: 24 }}
+          md={{ span: 20, offset: 2 }}
+          lg={{ span: 8, offset: 0 }}
+          xl={{ span: 6 }}
+        >
+          <Form.Item
+            name="returnDateRange"
+            label="Return date"
+            rules={[{ required: true, message: "Please fill return date" }]}
           >
             <RangePicker disabled={!data} style={{ width: "100%" }} />
           </Form.Item>
@@ -126,18 +141,6 @@ const SearchForm = () => {
               block
             >
               Search
-            </Button>
-          </Form.Item>
-        </Col>
-        <Col
-          xs={{ span: 24 }}
-          md={{ span: 20, offset: 2 }}
-          lg={{ span: 8, offset: 0 }}
-          xl={{ span: 6 }}
-        >
-          <Form.Item>
-            <Button danger htmlType="reset" block onClick={onReset}>
-              Reset
             </Button>
           </Form.Item>
         </Col>
