@@ -1,6 +1,2 @@
 @import-normalize;
 @import "~antd/dist/antd.css";
-
-.App {
-  padding: 0 0 1.5rem;
-}
