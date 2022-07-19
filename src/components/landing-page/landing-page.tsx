@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react";
-import Banner from "../banner";
+import Features from "../features";
+import Tiles from "../tiles";
 
 type Props = {
   children?: ReactNode;
@@ -9,7 +10,8 @@ const LandingPage: FC<Props> = ({ children }) => {
   return (
     <>
       {children}
-      <div>body</div>
+      <Features />
+      <Tiles />
     </>
   );
 };

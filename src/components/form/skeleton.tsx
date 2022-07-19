@@ -13,12 +13,8 @@ const FormSkeleton = () => {
       <Skeleton.Input active size="default" style={{ width: "100%" }} />
       <Skeleton.Input active size="default" style={{ width: "100%" }} />
       <Skeleton.Input active size="default" style={{ width: "100%" }} />
-      <Skeleton.Input
-        active
-        size="default"
-        style={{ width: "100%" }}
-        className={styles.lastRow}
-      />
+      <Skeleton.Input active size="default" style={{ width: "100%" }} />
+      <Skeleton.Input active size="default" style={{ width: "100%" }} />
     </div>
   );
 };
