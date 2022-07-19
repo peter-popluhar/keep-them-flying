@@ -1,0 +1,13 @@
+@media only screen and (min-width: 40em) {
+  .formGrid {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1em 3em;
+  }
+
+  .lastRow {
+    grid-column: 1 / span 2;
+  }
+}
