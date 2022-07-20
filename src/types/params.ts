@@ -1,3 +1,4 @@
+// @FIXME rename
 export type Params = {
   origin?: string;
   destination?: string;

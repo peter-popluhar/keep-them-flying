@@ -4,15 +4,15 @@ import { useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import { Locations } from "../../types/locations";
 import moment from "moment";
-import { API_URL, DATE_FORMAT } from "../../utils/constants";
+import { API_URL_LOCATIONS, DATE_FORMAT } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 import { RangePickerProps } from "antd/lib/date-picker";
 import { Params } from "../../types/params";
 import FormComponent from "./form";
 import FormSkeleton from "./skeleton";
 
-const FormWrapper = () => {
-  const { data, error } = useFetch<Locations>(API_URL);
+const Container = () => {
+  const { data, error } = useFetch<Locations>(API_URL_LOCATIONS);
   const [destinations, setDestinations] =
     useState<{ label: string; value: string }[]>();
   const [form] = Form.useForm();
@@ -67,8 +67,9 @@ const FormWrapper = () => {
       submitForm={submitForm}
       destinations={destinations}
       disabledDate={disabledDate}
+      isLoading={!data}
     />
   );
 };
 
-export default FormWrapper;
+export default Container;

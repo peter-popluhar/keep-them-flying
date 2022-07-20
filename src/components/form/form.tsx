@@ -12,6 +12,7 @@ type Props = {
   submitForm: ((values: any) => void) | undefined;
   destinations: { label: string; value: string }[] | undefined;
   disabledDate: ((date: moment.Moment) => boolean) | undefined;
+  isLoading: boolean;
 };
 
 const FormComponent: FC<Props> = ({
@@ -19,6 +20,7 @@ const FormComponent: FC<Props> = ({
   submitForm,
   destinations,
   disabledDate,
+  isLoading,
 }) => {
   return (
     <Form
@@ -38,7 +40,7 @@ const FormComponent: FC<Props> = ({
           options={destinations}
           optionFilterProp="label"
           placeholder="select origin"
-          // loading={!data}
+          loading={isLoading}
         />
       </Form.Item>
       <Form.Item
@@ -51,7 +53,7 @@ const FormComponent: FC<Props> = ({
           options={destinations}
           optionFilterProp="label"
           placeholder="select destination"
-          // loading={!data}
+          loading={isLoading}
         />
       </Form.Item>
       <Form.Item
@@ -60,7 +62,7 @@ const FormComponent: FC<Props> = ({
         rules={[{ required: true, message: "Please fill departure date" }]}
       >
         <RangePicker
-          // disabled={!data}
+          disabled={isLoading}
           style={{ width: "100%" }}
           disabledDate={disabledDate}
         />
@@ -71,13 +73,14 @@ const FormComponent: FC<Props> = ({
         rules={[{ required: true, message: "Please fill return date" }]}
       >
         <RangePicker
-          // disabled={!data}
+          disabled={isLoading}
           style={{ width: "100%" }}
           disabledDate={disabledDate}
         />
       </Form.Item>
       <Form.Item className={styles.lastRow}>
         <Button
+          disabled={isLoading}
           type="primary"
           icon={<SearchOutlined />}
           htmlType="submit"
