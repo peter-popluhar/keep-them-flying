@@ -1,11 +1,11 @@
 import { Alert, Form } from "antd";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import useFetch from "../../hooks/useFetch";
 import { Locations } from "../../types/locations";
 import moment from "moment";
 import { API_URL_LOCATIONS, DATE_FORMAT } from "../../utils/constants";
-import { useNavigate } from "react-router-dom";
 import { RangePickerProps } from "antd/lib/date-picker";
 import { FormValues } from "../../types/form-values";
 import FormComponent from "./form";

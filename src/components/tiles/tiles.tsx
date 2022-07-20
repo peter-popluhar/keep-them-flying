@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import { data } from "./data";
 import Item from "./tile-item";
 import styles from "./styles.module.css";

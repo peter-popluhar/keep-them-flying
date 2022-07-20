@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+
 import useFetch from "../../hooks/useFetch";
 import { Flights, FlightsData } from "../../types/flights";
 import { API_URL_FLIGHTS } from "../../utils/constants";

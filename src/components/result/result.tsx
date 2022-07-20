@@ -70,12 +70,12 @@ const Results: FC<Props> = ({ flights }) => {
                   <li key={i}>
                     <Timeline>
                       <Item dot={<DownOutlined />}>
-                        {aWeekday} {aDay} {aMonth}
-                        {aHour} {aMinute} from {cityFrom}, {countryFrom.name}
+                        {aWeekday} {aDay} {aMonth}, {aHour} {aMinute} from{" "}
+                        {cityFrom}, {countryFrom.name}
                       </Item>
                       <Item>
-                        {dWeekday} {dDay} {dMonth}
-                        {dHour} {dMinute} to {cityTo}, {countryTo.name}
+                        {dWeekday} {dDay} {dMonth}, {dHour} {dMinute} to{" "}
+                        {cityTo}, {countryTo.name}
                       </Item>
                       <Item dot={<UsergroupAddOutlined />}>
                         seats availabel: {availability.seats}
