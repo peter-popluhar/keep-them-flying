@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Loader 1`] = `
+<div>
+  <div
+    id="flight_loader"
+  >
+    <div
+      class="wrapper"
+    >
+      <span>
+        LOADING FLIGHTS
+      </span>
+      <div
+        class="locstart"
+      />
+      <div
+        class="flightpath"
+      >
+        <div
+          class="airplane"
+        />
+      </div>
+      <div
+        class="locend"
+      />
+    </div>
+  </div>
+</div>
+`;

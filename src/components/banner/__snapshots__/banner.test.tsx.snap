@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Banner 1`] = `
+<div>
+  <div
+    class="banner"
+  >
+    <h1
+      class="heading"
+    >
+      Keep them flying...
+    </h1>
+  </div>
+</div>
+`;

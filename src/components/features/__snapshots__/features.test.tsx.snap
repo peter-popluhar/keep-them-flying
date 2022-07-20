@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Features 1`] = `
+<div>
+  <div
+    class="features"
+  >
+    <h2>
+      Solutions for travelers during the COVID-19 pandemic
+    </h2>
+    <ul
+      class="list"
+    >
+      <li>
+        <img
+          alt="Refunds & cancellations"
+          src="https://www.kiwi.com/images/hero/icon-refunds.svg"
+        />
+        <h3>
+          Refunds & cancellations
+        </h3>
+        <p>
+          Learn more about our numerous refund options like carrier self-service and instant refunds.
+        </p>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            Find out more
+          </span>
+        </button>
+      </li>
+      <li>
+        <img
+          alt="Request a refund"
+          src="https://www.kiwi.com/images/hero/icon-self-service.svg"
+        />
+        <h3>
+          Request a refund
+        </h3>
+        <p>
+          The fastest and easiest way to cancel your booking is online via our refunds & cancellations form.
+        </p>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            Manage my booking
+          </span>
+        </button>
+      </li>
+      <li>
+        <img
+          alt="Coronavirus information"
+          src="https://www.kiwi.com/images/hero/icon-information.svg"
+        />
+        <h3>
+          Coronavirus information
+        </h3>
+        <p>
+          Read about how the new travel restrictions might affect your trip.
+        </p>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            COVID-19 information
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

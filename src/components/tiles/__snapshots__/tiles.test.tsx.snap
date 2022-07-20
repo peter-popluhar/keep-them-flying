@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Tiles 1`] = `
+<div>
+  <div
+    class="tiles"
+  >
+    <h2>
+      Find inspiration in places picked just for you
+    </h2>
+    <ul
+      class="list"
+    >
+      <li>
+        <img
+          alt="Barcelona"
+          src="https://images.skypicker.com/?image=https%3A%2F%2Fimages.kiwi.com%2Fphotos%2F1280x720%2Fbarcelona_es.jpg&width=320&height=238&fit=cover&quality=75"
+        />
+        <h3>
+          Barcelona
+        </h3>
+      </li>
+      <li>
+        <img
+          alt="Athens"
+          src="https://images.skypicker.com/?image=https%3A%2F%2Fimages.kiwi.com%2Fphotos%2F1280x720%2Fathens_gr.jpg&width=320&height=238&fit=cover&quality=75"
+        />
+        <h3>
+          Athens
+        </h3>
+      </li>
+      <li>
+        <img
+          alt="Palmas"
+          src="https://images.skypicker.com/?image=https%3A%2F%2Fimages.kiwi.com%2Fphotos%2F1280x720%2Fpalma_es.jpg&width=320&height=238&fit=cover&quality=75"
+        />
+        <h3>
+          Palmas
+        </h3>
+      </li>
+      <li>
+        <img
+          alt="Berlin"
+          src="https://images.skypicker.com/?image=https%3A%2F%2Fimages.kiwi.com%2Fphotos%2F1280x720%2Fberlin_de.jpg&width=320&height=238&fit=cover&quality=75"
+        />
+        <h3>
+          Berlin
+        </h3>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

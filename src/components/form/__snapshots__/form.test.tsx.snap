@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Form 1`] = `
+<div>
+  <div
+    class="formGrid"
+  >
+    <div
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+    >
+      <span
+        class="ant-skeleton-input"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+    >
+      <span
+        class="ant-skeleton-input"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+    >
+      <span
+        class="ant-skeleton-input"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+    >
+      <span
+        class="ant-skeleton-input"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+    >
+      <span
+        class="ant-skeleton-input"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+    >
+      <span
+        class="ant-skeleton-input"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+    >
+      <span
+        class="ant-skeleton-input"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+    >
+      <span
+        class="ant-skeleton-input"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+    >
+      <span
+        class="ant-skeleton-input"
+        style="width: 100%;"
+      />
+    </div>
+    <div
+      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+    >
+      <span
+        class="ant-skeleton-input"
+        style="width: 100%;"
+      />
+    </div>
+  </div>
+</div>
+`;
