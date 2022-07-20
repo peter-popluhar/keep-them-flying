@@ -1,37 +1,20 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
-import { Flights } from "../../types/flights";
+import { Flights, FlightsData } from "../../types/flights";
 import { API_URL_FLIGHTS } from "../../utils/constants";
 import Loader from "../loader";
 import Results from "./result";
-
-// @FIXME move to types
-type Params = {
-  dateFrom: string;
-  dateTo: string;
-  flyFrom: string;
-  returnFrom: string;
-  returnTo: string;
-  to: string;
-};
-
-type data = {
-  availability: { seats: number };
-  cityFrom: string;
-  cityTo: string;
-  countryFrom: { code: string; name: string };
-  countryTo: { code: string; name: string };
-  price: string;
-};
+import { getTime } from "../../utils/time-helper";
+import { ResultParams } from "../../types/result-params";
 
 const Container = () => {
   const location = useLocation();
   const { dateFrom, dateTo, flyFrom, returnFrom, returnTo, to } =
-    location.state as Params;
-  const [flights, setFlights] = useState<data[]>();
+    location.state as ResultParams;
+  const [flights, setFlights] = useState<FlightsData[]>();
   const { data, error } = useFetch<Flights>(
-    `${API_URL_FLIGHTS}&flyFrom=${flyFrom}&to=${to}&dateFrom=${dateFrom}&dateTo=${dateTo}&returnFrom=${returnFrom}&returnTo=${returnTo}`
+    `${API_URL_FLIGHTS}&flyFrom=${flyFrom}&to=${to}&dateFrom=${dateFrom}&dateTo=${dateTo}&typeFlight=return&returnFrom=${returnFrom}&returnTo=${returnTo}`
   );
 
   useEffect(() => {
@@ -43,6 +26,9 @@ const Container = () => {
       countryFrom: item.countryFrom,
       countryTo: item.countryTo,
       price: `${item.price} ${currency}`,
+      aTimeUTC: getTime(item.aTimeUTC),
+      dTimeUTC: getTime(item.dTimeUTC),
+      fly_duration: item.fly_duration,
     }));
 
     setFlights(values);

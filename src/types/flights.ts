@@ -1,3 +1,5 @@
+import { Time } from "./time";
+
 export interface CountryFrom {
   code: string;
   name: string;
@@ -183,4 +185,7 @@ export interface FlightsData {
   countryFrom: { code: string; name: string };
   countryTo: { code: string; name: string };
   price: string;
+  aTimeUTC: Time;
+  dTimeUTC: Time;
+  fly_duration: string;
 }

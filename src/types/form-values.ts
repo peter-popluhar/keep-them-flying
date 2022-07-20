@@ -1,5 +1,4 @@
-// @FIXME rename
-export type Params = {
+export type FormValues = {
   origin?: string;
   destination?: string;
   departureDateRange?: [moment.Moment | null, moment.Moment | null] | null;

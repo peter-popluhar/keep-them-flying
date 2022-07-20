@@ -7,7 +7,7 @@ import moment from "moment";
 import { API_URL_LOCATIONS, DATE_FORMAT } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 import { RangePickerProps } from "antd/lib/date-picker";
-import { Params } from "../../types/params";
+import { FormValues } from "../../types/form-values";
 import FormComponent from "./form";
 import FormSkeleton from "./skeleton";
 
@@ -27,7 +27,7 @@ const Container = () => {
     );
   }, [data?.locations]);
 
-  const submitForm = (values: Params) => {
+  const submitForm = (values: FormValues) => {
     const { origin, destination, departureDateRange, returnDateRange } = values;
     if (departureDateRange && returnDateRange) {
       const [departureDateFrom, departureDateTo] = departureDateRange;
