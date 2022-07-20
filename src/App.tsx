@@ -5,7 +5,6 @@ import Results from "./components/result";
 import LandingPage from "./components/landing-page";
 import Form from "./components/form";
 import Banner from "./components/banner";
-import Footer from "./components/footer";
 
 function App() {
   return (
@@ -25,7 +24,6 @@ function App() {
           <Route path="results" element={<Results />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
     </div>
   );
 }

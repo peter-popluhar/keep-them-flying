@@ -14,3 +14,10 @@
     grid-column: 1 / span 2;
   }
 }
+
+.formGrid label,
+.formGrid button {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+}
