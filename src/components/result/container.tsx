@@ -1,9 +1,9 @@
-import { Spin } from "antd";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { Flights } from "../../types/flights";
 import { API_URL_FLIGHTS } from "../../utils/constants";
+import Loader from "../loader";
 import Results from "./result";
 
 // @FIXME move to types
@@ -49,7 +49,7 @@ const Container = () => {
   }, [data]);
 
   if (error) return <p>There is an error.</p>;
-  if (!data) return <Spin size="large" />;
+  if (!data) return <Loader />;
 
   return <Results flights={flights} />;
 };

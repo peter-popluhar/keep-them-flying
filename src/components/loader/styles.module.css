@@ -1,0 +1,102 @@
+/* inspired by https://codepen.io/wnrosenberg/pen/abbvJxB */
+
+:root {
+  /* Colors */
+  --bodyBg: #fcf0f3;
+  --pinkish: #fcf0f3bf;
+  --white: #ffffff;
+  --whitish: #ffffff99;
+  --paleWhite: #f3f4f4;
+  --softRed: #ee9bac;
+  --mediumRed: #de8797;
+  --activeRed: #e74260;
+  --silver: #b1b3b3;
+  --textGrey: #707070;
+  --textBlack: #231f20;
+}
+
+#flight_loader {
+  background-color: #fcf0f3bf;
+  border-radius: 30px;
+  width: 500px;
+  height: 150px;
+  margin: 50px auto 0;
+  position: relative;
+  padding: 10px 20px 10px 20px;
+}
+#flight_loader .wrapper {
+  padding-top: 30px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+#flight_loader span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  letter-spacing: 2px;
+  animation: flash alternate 0.5s infinite;
+  font-size: 18px;
+  font-family: proxima-nova-condensed, sans-serif;
+  font-style: regular;
+}
+#flight_loader .locstart,
+#flight_loader .locend {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #fcf0f3;
+  border: 8px solid #ee9bac;
+  z-index: 2;
+}
+#flight_loader .flightpath {
+  height: 1px;
+  background: transparent;
+  border-top: 2px dashed #ee9bac;
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  width: calc(100% - 40px);
+}
+#flight_loader .airplane {
+  background-image: url(https://demos.thegameagencyportal.com/journey/svg/iconPlaneStatus.svg);
+  width: 64px;
+  height: 64px;
+  background-size: 64px;
+  position: absolute;
+  animation: flight infinite 2s ease-in-out;
+}
+
+@keyframes flight {
+  from {
+    left: 0;
+    transform: translateY(-50%) scale(0.5);
+  }
+  to {
+    left: calc(100% - (64px));
+    transform: translateY(-50%) scale(0.5);
+  }
+  10% {
+    transform: translateY(-50%) scale(0.5);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.4);
+  }
+  90% {
+    transform: translateY(-50%) scale(0.5);
+  }
+}
+@keyframes flash {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
