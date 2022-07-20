@@ -38,6 +38,10 @@
   align-items: center;
 }
 
+.list li > p {
+  margin-bottom: 2em;
+}
+
 .list button {
   margin-top: auto;
 }

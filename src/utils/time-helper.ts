@@ -1,4 +1,3 @@
-// @FIXME test!!!
 export const getTime = (unixTimestamp: number) => {
   const milliseconds = unixTimestamp * 1000;
   const dateObject = new Date(milliseconds);
