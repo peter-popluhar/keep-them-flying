@@ -67855,8 +67855,8 @@ const iataArr = [];
 Object.keys(IATA).forEach((key) => {
   if (IATA[key].city !== "") {
     iataArr.push({
-      iata: IATA[key].iata,
-      city: IATA[key].city,
+      value: IATA[key].iata,
+      label: IATA[key].city,
     });
   }
   return iataArr;

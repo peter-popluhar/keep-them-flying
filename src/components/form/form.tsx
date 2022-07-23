@@ -4,23 +4,30 @@ import { FC } from "react";
 import moment from "moment";
 
 import styles from "./styles.module.css";
+import { Airport } from "../../types/airport";
 
 const { RangePicker } = DatePicker;
 
 type Props = {
   form: FormInstance<any> | undefined;
   submitForm: ((values: any) => void) | undefined;
-  destinations: { label: string; value: string }[] | undefined;
+  origins: Airport[] | undefined;
+  destinations: Airport[] | undefined;
   disabledDate: ((date: moment.Moment) => boolean) | undefined;
-  isLoading: boolean;
+  disabled: boolean;
+  onChangeOrigin:
+    | ((value: any, option: Airport | Airport[]) => void)
+    | undefined;
 };
 
 const FormComponent: FC<Props> = ({
   form,
   submitForm,
+  origins,
   destinations,
   disabledDate,
-  isLoading,
+  disabled,
+  onChangeOrigin,
 }) => {
   return (
     <Form
@@ -37,10 +44,10 @@ const FormComponent: FC<Props> = ({
       >
         <Select
           showSearch
-          options={destinations}
+          options={origins}
           optionFilterProp="label"
           placeholder="select origin"
-          loading={isLoading}
+          onChange={onChangeOrigin}
         />
       </Form.Item>
       <Form.Item
@@ -53,7 +60,7 @@ const FormComponent: FC<Props> = ({
           options={destinations}
           optionFilterProp="label"
           placeholder="select destination"
-          loading={isLoading}
+          disabled={disabled}
         />
       </Form.Item>
       <Form.Item
@@ -62,7 +69,7 @@ const FormComponent: FC<Props> = ({
         rules={[{ required: true, message: "Please fill departure date" }]}
       >
         <RangePicker
-          disabled={isLoading}
+          disabled={disabled}
           style={{ width: "100%" }}
           disabledDate={disabledDate}
         />
@@ -73,14 +80,14 @@ const FormComponent: FC<Props> = ({
         rules={[{ required: true, message: "Please fill return date" }]}
       >
         <RangePicker
-          disabled={isLoading}
+          disabled={disabled}
           style={{ width: "100%" }}
           disabledDate={disabledDate}
         />
       </Form.Item>
       <Form.Item className={styles.lastRow}>
         <Button
-          disabled={isLoading}
+          disabled={disabled}
           type="primary"
           icon={<SearchOutlined />}
           htmlType="submit"
