@@ -8,6 +8,7 @@ import Loader from "../loader";
 import Results from "./result";
 import { getTime } from "../../utils/time-helper";
 import { ResultParams } from "../../types/result-params";
+import { Alert } from "antd";
 
 const Container = () => {
   const location = useLocation();
@@ -35,10 +36,20 @@ const Container = () => {
     setFlights(values);
   }, [data]);
 
-  if (error) return <p>There is an error.</p>;
+  if (error)
+    return (
+      <Alert
+        message="Error"
+        description="There is an error"
+        type="error"
+        showIcon
+      />
+    );
   if (!data) return <Loader />;
 
-  return <Results flights={flights} />;
+  return (
+    <Results flights={flights} flightInfo={location.state as ResultParams} />
+  );
 };
 
 export default Container;
