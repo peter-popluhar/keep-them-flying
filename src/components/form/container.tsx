@@ -15,14 +15,8 @@ import { airports } from "../../data/airports";
 import { Airport } from "../../types/airport";
 
 const Container = () => {
-  const [term, setTerm] = useState("PRG");
-  const { data, error } = useFetch<Locations>(
-    `${API_URL_LOCATIONS}&term=${term}`
-  );
-
+  const { data, error } = useFetch<Locations>(`${API_URL_LOCATIONS}&term=PRG`);
   const [origins, setSetOrigins] = useState<Airport[]>([]);
-
-  const [destinations, setDestinations] = useState<Airport[]>([]);
 
   const [form] = Form.useForm();
   const navigate = useNavigate();
@@ -37,17 +31,6 @@ const Container = () => {
       setSetOrigins(arr);
     }
   }, []);
-
-  useEffect(() => {
-    const arr = data?.locations.map((item) => ({
-      label: `${item.city.name}  ${item.city.code}`,
-      value: item.city.code,
-    }));
-
-    if (arr) {
-      setDestinations(arr);
-    }
-  }, [data?.locations]);
 
   const submitForm = (values: FormValues) => {
     const { origin, destination, departureDateRange, returnDateRange } = values;
@@ -70,11 +53,6 @@ const Container = () => {
     return current && current < moment().startOf("day");
   };
 
-  const onChangeOrigin = (value: string) => {
-    setTerm(value);
-    form.setFieldsValue({ destination: undefined });
-  };
-
   if (error)
     return (
       <Alert
@@ -91,10 +69,7 @@ const Container = () => {
       form={form}
       submitForm={submitForm}
       origins={origins}
-      destinations={destinations}
       disabledDate={disabledDate}
-      disabled={destinations.length < 1}
-      onChangeOrigin={onChangeOrigin}
     />
   );
 };
